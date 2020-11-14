@@ -8,7 +8,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
     extended: false
 }));
-app.use(express.static(path.resolve(__dirname + "/../client")));
+app.use("/client",express.static(path.resolve(__dirname + "/../client")));
 
 //Router listerners
 app.get('/write-restaurant', function (req, res) {
