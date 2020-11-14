@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Write Library</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--bootsrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/restaurant.js"></script>
+</head>
+<style>
+    #header {
+        background-color: oldlace;
+        color: darkblue;
+    }
+
+    a {
+        font-size: 20px;
+        padding-left: 20%;
+        color: darkblue;
+        font-weight: bold;
+    }
+
+    body {
+        background: url(images/storeFront.jpg) center/cover fixed no-repeat !important;
+    }
+
+    h1 {
+        color: darkblue;
+        text-align: center;
+        background-color: oldlace;
+        width: 380px;
+        font-size: 34px;
+        margin: auto;
+        margin-top: 200px;
+    }
+
+    section {
+        border: 2px solid black;
+        margin: auto;
+        width: 285px;
+        margin-top: 20px;
+        background-color: lightgray;
+    }
+
+    .labelName{
+        margin: 5px;
+        color: darkblue;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .inputBox {
+        margin-top: 5px;
+        text-align: center;
+        margin-right: 5px;
+        float: right;
+    }
+
+    #data-submit {
+        margin-left: 90px;
+        width: 100px;
+        font-size: 15px;
+        color: darkblue;
+        font-weight: bold;
+        background-color: whitesmoke;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+<body>
+    <div id="header">
+        <a href="#">Home</a>
+        <a href="http://localhost:6200/write-restaurant">Write Review</a>
+        <a href="http://localhost:6200/browse-database">Review Table</a>
+    </div>
+    <header>
+        <h1>Enter Restaurant's Info</h1>
+    </header>
+
+    <main>
+        <section>
+            <form>
+                <div>
+                    <label class="labelName" for="RestaurantName">Restaurant Name:</label>
+                    <input class="inputBox" type="text" id="RestaurantName" name="RestaurantName" size=10>
+                </div>
+                <div>
+                    <label class="labelName" for="foodType">Food Type: </label>
+                    <input class="inputBox" type="text" id="foodType" name="foodType" size=10>
+                </div>
+                <div>
+                    <label class="labelName" for="location">Location:</label>
+                    <input class="inputBox" type="text" id="location" name="location" size=10>
+                </div>
+                <div>
+                    <label class="labelName" for="criticRating">Critic Rating 1-5 Stars:</label>
+                    <input  class="inputBox"type="number" id="criticRating" name="criticRating" min="1" max="5" size=20>
+                </div>
+                <div>
+                    <label class="labelName" for="patronRating">Patron Rating 1-5 Stars:</label>
+                    <input class="inputBox" type="number" id="patronRating" name="patronRating" min="1" max="5" size=10>
+                </div>
+                <div id="save_button">
+                    <button id="data-submit">Submit</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+<script>
+    activateSubmitButton();
+
+</script>
+
+</html>

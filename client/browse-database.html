@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Browser Library</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/restaurant.js"></script>
+    <!--bootsrap css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    #header {
+        background-color: oldlace;
+        color: darkred;
+    }
+
+    a {
+        font-size: 20px;
+        padding-left: 20%;
+        color: darkblue;
+        font-weight: bold;
+    }
+
+    body {
+        background: url(images/storeFront.jpg) center/cover fixed no-repeat !important;
+    }
+
+    h1 {
+        text-align: center;
+        color: darkblue;
+        background-color: oldlace;
+        width: 350px;
+        margin: auto;
+        margin-top: 200px;
+        font-size: 34px;
+    }
+
+    table {
+        border: 2px solid black;
+        border-collapse: collapse;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    th {
+        background-color: lightgray;
+        border: 2px solid black;
+        text-align: center;
+        border-collapse: collapse;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    tr,
+    td {
+        text-align: center;
+        border: 2px solid black;
+        border-collapse: collapse;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    tr:nth-child(even) {
+        background-color: lightgray;
+    }
+
+    tr:nth-child(odd) {
+        background-color: white;
+    }
+
+</style>
+
+<body>
+    <div id="header">
+        <a href="#">Home</a>
+        <a href="http://localhost:6200/write-restaurant">Write Review</a>
+        <a href="http://localhost:6200/browse-database">Review Table</a>
+    </div>
+
+
+    <header>
+        <h1>Restaurant's Review</h1>
+
+    </header>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Resturant Name</th>
+            <th>Food Type</th>
+            <th>Location</th>
+            <th>Critic Star Rating</th>
+            <th>Patron Star Rating</th>
+        </thead>
+
+        <tbody id="restaurantTable"></tbody>
+    </table>
+    <script>
+        getRestaurantData();
+
+    </script>
+</body>
+
+</html>
