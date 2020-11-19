@@ -2,16 +2,19 @@
 <html lang="en">
 
 <head>
-    <title>Write Library</title>
+    <title>Write Restaurante Review</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--bootsrap css -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/restaurant.js"></script>
+    <link href="/client/css/bootstrap.min.css" rel="stylesheet">
+    <!--    client page css-->
+    <link href="/client/css/restaurant.css" vrel="stylesheet">
+    <script src="/client/js/config.js"></script>
+    <script src="/client/js/write-restaurant.js" async></script>
 </head>
 <style>
     #header {
         background-color: oldlace;
-        color: darkblue;
+        color: darkred;
     }
 
     a {
@@ -22,17 +25,17 @@
     }
 
     body {
-        background: url(images/storeFront.jpg) center/cover fixed no-repeat !important;
+        background: url(/client/images/storeFront.jpg) center/cover fixed no-repeat !important;
     }
 
     h1 {
-        color: darkblue;
         text-align: center;
+        color: darkblue;
         background-color: oldlace;
-        width: 380px;
-        font-size: 34px;
+        width: 350px;
         margin: auto;
         margin-top: 200px;
+        font-size: 34px;
     }
 
     section {
@@ -43,7 +46,7 @@
         background-color: lightgray;
     }
 
-    .labelName{
+    .labelName {
         margin: 5px;
         color: darkblue;
         font-size: 17px;
@@ -72,7 +75,7 @@
 
 <body>
     <div id="header">
-        <a href="#">Home</a>
+        <a href="/">Home</a>
         <a href="/client/write-restaurant.html">Write Review</a>
         <a href="/client/browse-database.html">Review Table</a>
     </div>
@@ -97,7 +100,7 @@
                 </div>
                 <div>
                     <label class="labelName" for="criticRating">Critic Rating 1-5 Stars:</label>
-                    <input  class="inputBox"type="number" id="criticRating" name="criticRating" min="1" max="5" size=20>
+                    <input class="inputBox" type="number" id="criticRating" name="criticRating" min="1" max="5" size=20>
                 </div>
                 <div>
                     <label class="labelName" for="patronRating">Patron Rating 1-5 Stars:</label>
@@ -110,9 +113,6 @@
         </section>
     </main>
 </body>
-<script>
-    activateSubmitButton();
 
-</script>
 
 </html>

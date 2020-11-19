@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Browser Restaurant Table</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/client/js/config.js"></script>
-    <script src="/client/js/browse-database.js" async></script>
-    <!--bootsrap css -->
-    <link href="/client/css/bootstrap.min.css" rel="stylesheet">
-    <!--    client page css-->
-    <link href="/client/css/restaurant.css" vrel="stylesheet">
-</head>
-<style>
-    #header {
+  #header {
         background-color: oldlace;
         color: darkred;
     }
@@ -36,6 +22,38 @@
         margin: auto;
         margin-top: 200px;
         font-size: 34px;
+    }
+ section {
+        border: 2px solid black;
+        margin: auto;
+        width: 285px;
+        margin-top: 20px;
+        background-color: lightgray;
+    }
+
+    .labelName {
+        margin: 5px;
+        color: darkblue;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .inputBox {
+        margin-top: 5px;
+        text-align: center;
+        margin-right: 5px;
+        float: right;
+    }
+
+    #data-submit {
+        margin-left: 90px;
+        width: 100px;
+        font-size: 15px;
+        color: darkblue;
+        font-weight: bold;
+        background-color: whitesmoke;
+        margin-top: 10px;
+        margin-bottom: 5px;
     }
 
     table {
@@ -70,35 +88,3 @@
     tr:nth-child(odd) {
         background-color: white;
     }
-
-</style>
-
-<body>
-    <div id="header">
-        <a href="/">Home</a>
-        <a href="/client/write-restaurant.html">Write Review</a>
-        <a href="/client/browse-database.html">Review Table</a>
-    </div>
-
-
-    <header>
-        <h1>Restaurant's Review</h1>
-
-    </header>
-
-    <table>
-        <thead>
-            <th>ID</th>
-            <th>Resturant Name</th>
-            <th>Food Type</th>
-            <th>Location</th>
-            <th>Critic Star Rating</th>
-            <th>Patron Star Rating</th>
-        </thead>
-
-        <tbody id="restaurantTable"></tbody>
-    </table>
-
-</body>
-
-</html>
