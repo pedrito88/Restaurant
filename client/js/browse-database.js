@@ -1,7 +1,7 @@
 //retrieve library data and populate on page load
 
     $.ajax({
-        url: resURL + '/read-records',
+        url: resURL  + '/read-records',
         type: 'get',
         success: function (response) {
             var data = jQuery.parseJSON(response);

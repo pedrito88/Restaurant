@@ -4,76 +4,15 @@
 <head>
     <title>Browser Restaurant Table</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/client/js/config.js"></script>
-    <script src="/client/js/browse-database.js" async></script>
     <!--bootsrap css -->
     <link href="/client/css/bootstrap.min.css" rel="stylesheet">
     <!--    client page css-->
-    <link href="/client/css/restaurant.css" vrel="stylesheet">
+    <link href="/client/css/restaurant.css" rel="stylesheet">
+    <script src="/client/js/config.js"></script>
+    <script src="/client/js/browse-database.js" async></script>
 </head>
-<style>
-    #header {
-        background-color: oldlace;
-        color: darkred;
-    }
 
-    a {
-        font-size: 20px;
-        padding-left: 20%;
-        color: darkblue;
-        font-weight: bold;
-    }
-
-    body {
-        background: url(/client/images/storeFront.jpg) center/cover fixed no-repeat !important;
-    }
-
-    h1 {
-        text-align: center;
-        color: darkblue;
-        background-color: oldlace;
-        width: 350px;
-        margin: auto;
-        margin-top: 200px;
-        font-size: 34px;
-    }
-
-    table {
-        border: 2px solid black;
-        border-collapse: collapse;
-        margin: auto;
-        margin-top: 20px;
-    }
-
-    th {
-        background-color: lightgray;
-        border: 2px solid black;
-        text-align: center;
-        border-collapse: collapse;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    tr,
-    td {
-        text-align: center;
-        border: 2px solid black;
-        border-collapse: collapse;
-        padding-right: 10px;
-        padding-left: 10px;
-    }
-
-    tr:nth-child(even) {
-        background-color: lightgray;
-    }
-
-    tr:nth-child(odd) {
-        background-color: white;
-    }
-
-</style>
-
-<body>
+<body id="database">
     <div id="header">
         <a href="/">Home</a>
         <a href="/client/write-restaurant.html">Write Review</a>
@@ -82,7 +21,7 @@
 
 
     <header>
-        <h1>Restaurant's Review</h1>
+        <h1 id="hDatabase">Restaurant's Review</h1>
 
     </header>
 
