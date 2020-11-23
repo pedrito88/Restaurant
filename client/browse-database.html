@@ -8,15 +8,19 @@
     <link href="/client/css/bootstrap.min.css" rel="stylesheet">
     <!--    client page css-->
     <link href="/client/css/restaurant.css" rel="stylesheet">
+     <!--    google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <script src="/client/js/config.js"></script>
     <script src="/client/js/browse-database.js" async></script>
 </head>
 
 <body id="database">
     <div id="header">
-        <a href="/">Home</a>
-        <a href="/client/write-restaurant.html">Write Review</a>
-        <a href="/client/browse-database.html">Review Table</a>
+       <a class="headerLinks" href="/">Home</a>
+        <a class="headerLinks" href="/client/write-restaurant.html">Write Review</a>
+        <a class="headerLinks" href="/client/browse-database.html">Review Table</a>
     </div>
 
 
@@ -33,6 +37,7 @@
             <th>Location</th>
             <th>Critic Star Rating</th>
             <th>Patron Star Rating</th>
+            <th>Delete Entry</th>
         </thead>
 
         <tbody id="restaurantTable"></tbody>

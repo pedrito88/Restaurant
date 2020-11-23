@@ -1,51 +1,76 @@
   /************   Header for all webpages   **************/
   #header {
+      font-family: 'Luckiest Guy', cursive;
       background-color: orangered;
       font-weight: bolder;
       opacity: 0.90;
   }
 
-  a {
-      font-size: 20px;
-      padding-left: 20%;
+  .headerLinks {
+      font-size: 23px;
+      padding-left: 11%;
+      padding-right: 11%;
       color: darkblue;
       font-weight: bold;
       text-decoration: none;
+
   }
 
-  a:link {
+  .headerLinks:link {
       text-decoration: none;
       color: white;
       font-weight: bolder;
   }
 
-  a:visited {
+  .headerLinks:visited {
       color: mediumblue;
       text-decoration: none;
   }
 
-  a:hover {
+  .headerLinks:hover {
       text-decoration: none;
       color: lightseagreen;
       font-weight: bolder;
+      border: 2px solid lightseagreen;
   }
 
-  h1 {
-      text-align: center;
-      color: lightseagreen;
-      font-weight: bolder;
-      background-color: lightsalmon;
-      width: 350px;
-      margin: auto;
-      margin-top: 200px;
-      font-size: 34px;
-      opacity: 0.90;
-  }
 
   /************   landing page    **************/
 
   #index {
       background: url(/client/images/tacos.jpg) center/cover fixed no-repeat !important;
+  }
+
+  .hyperText {
+      color: darkred;
+      font-weight: bold;
+      text-decoration: none;
+      size 30px;
+  }
+
+  .hyperText:hover {
+      text-decoration: none;
+      font-weight: bolder;
+      color: red;
+      font-size: 35;
+  }
+
+  #pInfo {
+      font-family: 'Patrick Hand', cursive;
+      text-align: center;
+      color: darkblue;
+      font-weight: bolder;
+      background-color: lightgray;
+      max-width: 900px;
+      border-radius: 30px;
+      margin: auto;
+      margin-top: 200px;
+      font-size: 25px;
+      opacity: 0.80;
+  }
+
+  p {
+      padding: 0px 20px 0px 20px;
   }
 
   /************   write review page   **************/
@@ -54,24 +79,29 @@
   }
 
   #hReview {
+      font-family: 'Patrick Hand', cursive;
       text-align: center;
       color: darkblue;
       font-weight: bolder;
       background-color: lightgray;
-      width: 380px;
+      width: 285px;
+      border-radius: 30px;
       margin: auto;
       margin-top: 200px;
-      font-size: 34px;
+      font-size: 30px;
       opacity: 0.80;
   }
 
   section {
+      font-family: 'Luckiest Guy', cursive;
       border: 4px solid black;
       margin: auto;
-      width: 285px;
-      margin-top: 20px;
+      width: 400px;
+      border-radius: 30px;
+      margin-top: 5px;
       background-color: lightgray;
       opacity: 0.80;
+      padding: 8px;
   }
 
   .labelName {
@@ -82,6 +112,7 @@
   }
 
   .inputBox {
+      font-family: sans-serif;
       margin-top: 5px;
       text-align: center;
       margin-right: 5px;
@@ -108,11 +139,13 @@
   }
 
   #hDatabase {
+      font-family: 'Patrick Hand', cursive;
       text-align: center;
       color: black;
       font-weight: bolder;
       background-color: lightsalmon;
-      width: 350px;
+      width: 270px;
+      border-radius: 30px;
       margin: auto;
       margin-top: 200px;
       font-size: 34px;
@@ -120,10 +153,11 @@
   }
 
   table {
+      font-family: 'Patrick Hand', cursive;
       border: 2px solid black;
       border-collapse: collapse;
       margin: auto;
-      margin-top: 20px;
+      margin-top: 5px;
       opacity: 0.70;
   }
 
@@ -147,6 +181,19 @@
       padding-left: 10px;
       color: black;
       font-weight: bolder;
+  }
+
+  .deleteButton {
+      background-color: lightgray;
+      color: darkred;
+      font-weight: bolder;
+      border-radius: 20px;
+
+  }
+
+  .deleteButton:hover {
+      background-color: darkslategray;
+      color: white;
   }
 
   tr:nth-child(even) {

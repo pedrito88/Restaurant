@@ -8,42 +8,44 @@
     <link href="/client/css/bootstrap.min.css" rel="stylesheet">
     <!--    client page css-->
     <link href="/client/css/restaurant.css" rel="stylesheet">
+     <!--    google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <script src="/client/js/config.js"></script>
     <script src="/client/js/write-restaurant.js" async></script>
 </head>
 
 <body id="review">
     <div id="header">
-        <a href="/">Home</a>
-        <a href="/client/write-restaurant.html">Write Review</a>
-        <a href="/client/browse-database.html">Review Table</a>
+        <a class="headerLinks" href="/">Home</a>
+        <a class="headerLinks" href="/client/write-restaurant.html">Write Review</a>
+        <a class="headerLinks" href="/client/browse-database.html">Review Table</a>
     </div>
-    <header>
-        <h1 id="hReview">Enter Restaurant's Info</h1>
-    </header>
 
     <main>
+        <h1 id="hReview">Enter Restaurant's Info</h1>
         <section>
             <form>
                 <div>
-                    <label class="labelName" for="RestaurantName">Restaurant Name:</label>
-                    <input class="inputBox" type="text" id="RestaurantName" name="RestaurantName" size=10>
+                    <label class="labelName" for="RestaurantName">Restaurant Name :</label>
+                    <input class="inputBox" type="text" id="RestaurantName" name="RestaurantName" size=13>
                 </div>
                 <div>
-                    <label class="labelName" for="foodType">Food Type: </label>
-                    <input class="inputBox" type="text" id="foodType" name="foodType" size=10>
+                    <label class="labelName" for="foodType">Food Type : </label>
+                    <input class="inputBox" type="text" id="foodType" name="foodType" size=13>
                 </div>
                 <div>
-                    <label class="labelName" for="location">Location:</label>
-                    <input class="inputBox" type="text" id="location" name="location" size=10>
+                    <label class="labelName" for="location">Location :</label>
+                    <input class="inputBox" type="text" id="location" name="location" size=13>
                 </div>
                 <div>
-                    <label class="labelName" for="criticRating">Critic Rating 1-5 Stars:</label>
-                    <input class="inputBox" type="number" id="criticRating" name="criticRating" min="1" max="5" size=20>
+                    <label class="labelName" for="criticRating">Critic Rating 1-5 Stars :</label>
+                    <input class="inputBox" type="number" id="criticRating" name="criticRating" min="1" max="5">
                 </div>
                 <div>
-                    <label class="labelName" for="patronRating">Patron Rating 1-5 Stars:</label>
-                    <input class="inputBox" type="number" id="patronRating" name="patronRating" min="1" max="5" size=10>
+                    <label class="labelName" for="patronRating">Patron Rating 1-5 Stars :</label>
+                    <input class="inputBox" type="number" id="patronRating" name="patronRating" min="1" max="5">
                 </div>
                 <div id="save_button">
                     <button id="data-submit">Submit</button>
