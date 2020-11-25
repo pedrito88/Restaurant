@@ -19,20 +19,22 @@ $('.deleteButton').click(function () {
         url: resURL + '/delete-records',
         type: 'delete',
         data: {
-            data: itemID
+            ID: itemID
         },
-        success: $.ajax({
-            url: resURL + '/read-records',
-            type: 'get',
-            success: function (response) {
-                var data = jQuery.parseJSON(response);
-                console.log(data);
-                createRestaurantTable(data);
-            },
-            error: function (err) {
-                alert(err);
-            }
-        })
+        success: function () {
+            $.ajax({
+                url: resURL + '/read-records',
+                type: 'get',
+                success: function (response) {
+                    var data = jQuery.parseJSON(response);
+                    console.log(data);
+                    createRestaurantTable(data);
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+        }
     });
 
 });
