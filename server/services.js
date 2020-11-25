@@ -33,16 +33,16 @@ var services = function (app) {
     });
 
     //delete services 
-    app.delete('/delete-record', function (req, res) {
-        var data = req.body.data;
-        var id = data.id;
+    app.delete('/delete-records', function (req, res) {
+        var id = req.body.ID;
 
         fs.readFile(outputFile, 'utf8', function (err, data) {
             if (err) {
                 res.send(err);
             } else {
-
+                data = "[" + data + "]";
                 var parsedData = JSON.parse(data);
+
                 for (var i = 0; i < parsedData.length; i++) {
                     if (id === parsedData[i].ID) {
                         parsedData.splice(i, 1);
@@ -51,17 +51,16 @@ var services = function (app) {
                 }
 
                 var dataString = JSON.stringify(parsedData);
+                dataString = dataString.substring(1, dataString.length);
+                dataString = dataString.substring(0, dataString.length - 1);
+
                 fs.writeFile(outputFile, dataString, function (err) {
                     if (err) {
                         res.send(err);
                     } else {
-                        data = "[" + dataString + "]";
-                        res.send(data);
+                        res.send("SUCCESS");
                     }
                 });
-
-                data = "[" + data + "]";
-                res.send(data);
             }
 
         });

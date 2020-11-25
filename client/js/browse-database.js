@@ -12,9 +12,10 @@ $.ajax({
     }
 });
 //******   uncomment below. This is the new code i had done for the delete
-$('.deleteButton').click(function () {
+function DeleteRow(){
+    $('.deleteButton').click(function () {
     var itemID = this.getAttribute("data-id");
-
+        
     $.ajax({
         url: resURL + '/delete-records',
         type: 'delete',
@@ -38,6 +39,7 @@ $('.deleteButton').click(function () {
     });
 
 });
+}
 // end of new stuff
 
 function createRestaurantTable(restaurantData) {
@@ -50,8 +52,9 @@ function createRestaurantTable(restaurantData) {
         tableHTML += "<td>" + restaurantData[i].location + "</td>";
         tableHTML += "<td>" + restaurantData[i].criticRating + "</td>";
         tableHTML += "<td>" + restaurantData[i].patronRating + "</td>";
-        tableHTML += "<td>" + '<button class="deleteButton" data-id=" + restaurantData[i].ID + ">DELETE</button>' + "</td>";
+        tableHTML += "<td>" + '<button class="deleteButton" data-id="' + restaurantData[i].ID + '"' + '>DELETE</button>' + "</td>";
         tableHTML += "</tr>";
     }
     $('#restaurantTable').html(tableHTML);
+    DeleteRow();
 }
