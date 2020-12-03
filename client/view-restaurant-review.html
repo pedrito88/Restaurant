@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>View Restaurant Review</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./js/write-restaurant-review.js"></script>
+    <!--bootsrap css -->
+    <link href="/client/css/bootstrap.min.css" rel="stylesheet">
+    <!--    client page css-->
+    <link href="/client/css/restaurant.css" rel="stylesheet">
+    <!--    google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body id="viewReview">
+    <div class="header">
+        <h4>Pedro's Restaurant Review</h4>
+        <div class="float-right">
+            <a class="headerLinks" href="/">Home</a>
+            <a class="headerLinks" href="/client/write-restaurant.html">Write Review</a>
+            <a class="headerLinks" href="/client/browse-database.html">Review Table</a>
+            <a class="headerLinks" href="/client/view-restaurant-review.html"> View Review </a>
+        </div>
+    </div>
+
+    <div data-ng-app="App" data-ng-controller="ctrl">
+
+        <form>
+
+            <div id="view-div">
+                <h4 id="view-h4">Pick The Review You Want To View</h4>
+                <table id="view-table">
+
+                    <tr>
+                        <th class="view-th">Restaurant Name</th>
+                        <th class="view-th">Food Type</th>
+                        <th class="view-th">Location</th>
+                        <th class="view-th">Critic Rating</th>
+                        <th class="view-th">Patron Rating</th>
+                    </tr>
+                    <tr>
+                        <td class="view-td">{{obj.RestaurantName }}</td>
+                        <td class="view-td">{{obj.foodType }}</td>
+                        <td class="view-td">{{obj.location }}</td>
+                        <td class="view-td">{{obj.criticRating }}</td>
+                        <td class="view-td">{{obj.patronRating }}</td>
+                    </tr>
+
+                </table>
+
+                <div id="divButtons">
+                    <button class="view-buttons" id="previous" data-ng-click="changeReview(-1)" data-ng-hide="hidePrev">&lt;&lt;&lt; Previous</button>
+
+                    <button class="view-buttons" id="next" data-ng-click="changeReview(1)" data-ng-hide="hideNext">Next &gt;&gt;&gt;</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</body></html>

@@ -1,24 +1,39 @@
   /************   Header for all webpages   **************/
-  #header {
+  .header {
+      overflow: hidden;
       font-family: 'Luckiest Guy', cursive;
       background-color: orangered;
       font-weight: bolder;
-      opacity: 0.90;
   }
 
-  .headerLinks {
+  h4 {
+      float: left;
+      color: white;
+      text-align: center;
+      padding: 15px 12px 0px 10px;
+      text-decoration: none;
+      font-size: 28px;
+      line-height: 25px;
+      border-radius: 4px;
+      font-weight: bolder;
+  }
+
+  .header a {
+      float: left;
+      /*      color: darkblue;*/
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
       font-size: 23px;
-      padding-left: 11%;
-      padding-right: 11%;
-      color: darkblue;
+      line-height: 25px;
+      border-radius: 4px;
       font-weight: bold;
       text-decoration: none;
-
   }
 
   .headerLinks:link {
       text-decoration: none;
-      color: white;
+      color: #00BAFF;
       font-weight: bolder;
   }
 
@@ -29,9 +44,9 @@
 
   .headerLinks:hover {
       text-decoration: none;
+      background-color: black;
       color: lightseagreen;
       font-weight: bolder;
-      border: 2px solid lightseagreen;
   }
 
 
@@ -39,6 +54,14 @@
 
   #index {
       background: url(/client/images/tacos.jpg) center/cover fixed no-repeat !important;
+  }
+
+  #view-form {
+      background-color: mintcream;
+      opacity: .90;
+      width: 780px;
+      border-radius: 30px;
+      margin: auto
   }
 
   .hyperText {
@@ -144,7 +167,7 @@
       color: black;
       font-weight: bolder;
       background-color: lightsalmon;
-      width: 270px;
+      width: 200px;
       border-radius: 30px;
       margin: auto;
       margin-top: 200px;
@@ -203,4 +226,52 @@
 
   tr:nth-child(odd) {
       background-color: lightsalmon;
+  }
+
+  /************   view webpage   **************/
+
+  #viewReview {
+      background: url(/client/images/frozenMargarita.jpg) center/cover fixed no-repeat !important;
+  }
+
+  #view-div {
+      position: relative;
+      padding-top: 10px;
+      width: 700px;
+      border-radius: 50px;
+      margin: auto;
+      margin-top: 300px;
+      background: rgba(245, 255, 250, 0.65);
+
+  }
+
+  #view-h4 {
+      color: darkred;
+      font-weight: bolder;
+      text-align: center;
+      padding-left: 150px;
+  }
+
+  .view-th {
+      background-color: salmon;
+      font-size: 24px;
+  }
+
+  .view-td {
+      background-color: lightseagreen;
+      font-size: 24px;
+  }
+
+
+
+  #divButtons {
+      padding: 10px 0px 10px 0px;
+      text-align: center;
+  }
+
+  .view-buttons {
+      background-color: oldlace;
+      color: darkred;
+      font-weight: bolder;
+      font: 20px;
   }

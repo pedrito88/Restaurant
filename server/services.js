@@ -51,8 +51,8 @@ var services = function (app) {
                 }
 
                 var dataString = JSON.stringify(parsedData);
-                dataString = dataString.substring(1, dataString.length);
-                dataString = dataString.substring(0, dataString.length - 1);
+//                dataString = dataString.substring(1, dataString.length);
+                dataString = dataString.substring(1, dataString.length - 1);
 
                 fs.writeFile(outputFile, dataString, function (err) {
                     if (err) {
