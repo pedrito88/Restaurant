@@ -10,17 +10,18 @@ app.controller("ctrl", function ($scope, $http) {
 
         $http({
             method: "get",
-            url: 'http://localhost:6200/read-records'
+            url: resURL + '/read-records'
         }).then(function (response) {
-
-            review = response.data;
-            $scope.obj = review[activeReview];
-            $scope.showHide();
+            if (response.data.msg === "SUCCESS") {
+                review = response.data.reviews;
+                $scope.obj = review[activeReview];
+                $scope.showHide();
+            } else {
+                console.log(response.data.msg);
+            }
 
         }, function (response) {
-
             console.log(response);
-
         });
 
     };

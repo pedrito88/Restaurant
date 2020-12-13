@@ -1,68 +1,124 @@
 const fs = require('fs');
+var outputFile = './files/restaurant.txt';
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
+
+const dbURL = process.env.DB_URL || "mongodb://localhost";
 
 //Service Listerners
 var services = function (app) {
-    var outputFile = './files/restaurant.txt';
-    app.post('/write-record', function (req, res) {
-        var data = req.body.data;
-        console.log(data);
 
-        if (fs.existsSync(outputFile)) {
-            data = "," + data;
+    app.post('/write-record', function (req, res) {
+
+        var reviewData = {
+
+            RestaurantName: req.body.RestaurantName,
+            foodType: req.body.foodType,
+            location: req.body.location,
+            criticRating: req.body.criticRating,
+            patronRating: req.body.patronRating
         };
 
-        fs.appendFile(outputFile, data, function (err) {
+        MongoClient.connect(dbURL, {
+            useUnifiedTopology: true
+        }, function (err, client) {
+
             if (err) {
-                res.send(err);
+                return res.status(200).send(JSON.stringify({
+                    msg: "ERROR: " + err
+                }));
             } else {
-                res.send("Success");
+                var dbo = client.db("restReview");
+                dbo.collection("reviews").insertOne(reviewData, function (err) {
+                    if (err) {
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "ERROR: " + err
+                        }));
+                    } else {
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "SUCCESS"
+                        }));
+                    }
+                })
             }
         });
+
     });
 
     //get service
     app.get('/read-records', function (req, res) {
-        fs.readFile(outputFile, 'utf8', function (err, data) {
+
+        MongoClient.connect(dbURL, {
+            useUnifiedTopology: true
+        }, function (err, client) {
+
             if (err) {
-                res.send(err);
+
+                return res.status(200).send(JSON.stringify({
+                    msg: "ERROR: " + err
+                }));
             } else {
-                data = "[" + data + "]";
-                res.send(data);
+                var dbo = client.db("restReview");
+
+                dbo.collection("reviews").find().toArray(function (err, data) {
+
+                    if (err) {
+
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "ERROR: " + err
+                        }));
+                    } else {
+
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "SUCCESS",
+                            reviews: data
+                        }));
+                    }
+
+                });
             }
         });
+
     });
+
 
     //delete services 
     app.delete('/delete-records', function (req, res) {
-        var id = req.body.ID;
+        var reviewId = req.body.ID;
+        var r_id = new ObjectId(reviewId);
+        var search = {
+            _id: r_id
+        };
 
-        fs.readFile(outputFile, 'utf8', function (err, data) {
+        MongoClient.connect(dbURL, {
+            useUnifiedTopology: true
+        }, function (err, client) {
+
             if (err) {
-                res.send(err);
+                return res.status(200).send(JSON.stringify({
+                    msg: "ERROR: " + err
+                }));
             } else {
-                data = "[" + data + "]";
-                var parsedData = JSON.parse(data);
+                var dbo = client.db("restReview");
+                dbo.collection("reviews").deleteOne(search, function (err, data) {
 
-                for (var i = 0; i < parsedData.length; i++) {
-                    if (id === parsedData[i].ID) {
-                        parsedData.splice(i, 1);
-                        break;
-                    }
-                }
-
-                var dataString = JSON.stringify(parsedData);
-//                dataString = dataString.substring(1, dataString.length);
-                dataString = dataString.substring(1, dataString.length - 1);
-
-                fs.writeFile(outputFile, dataString, function (err) {
                     if (err) {
-                        res.send(err);
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "ERROR: " + err
+                        }));
                     } else {
-                        res.send("SUCCESS");
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "SUCCESS"
+                        }));
                     }
-                });
+                })
             }
-
         });
     });
 
