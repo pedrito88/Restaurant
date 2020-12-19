@@ -3,48 +3,105 @@
 
 <head>
     <title>Browser Restaurant Table</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="/client/js/config.js"></script>
     <!--bootsrap css -->
     <link href="/client/css/bootstrap.min.css" rel="stylesheet">
     <!--    client page css-->
     <link href="/client/css/restaurant.css" rel="stylesheet">
-     <!--    google font-->
+    <!--    google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <script src="/client/js/config.js"></script>
-    <script src="/client/js/browse-database.js" async></script>
+    <script src="/client/js/browse-database-Angular.js"></script>
 </head>
 
 <body id="database">
     <div class="header">
-       <h4>Pedro's Restaurant Review</h4>
-       <div class="float-right">
-        <a class="headerLinks" href="/">Home</a>
-        <a class="headerLinks" href="/client/write-restaurant.html">Write Review</a>
-        <a class="headerLinks" href="/client/browse-database.html">Review Table</a>
-        <a class="headerLinks" href="/client/view-restaurant-review.html">View Review</a>
+        <h4>Pedro's Restaurant Review</h4>
+        <div class="float-right">
+            <a class="headerLinks" href="/">Home</a>
+            <a class="headerLinks" href="/client/write-restaurant.html">Write Review</a>
+            <a class="headerLinks" href="/client/browse-database.html">Review Table</a>
+            <a class="headerLinks" href="/client/view-restaurant-review.html">View Review</a>
         </div>
     </div>
+    <div data-ng-app="restBrowseApp" data-ng-controller="ctrl" data-ng-init="hideForm=true">
+        <section data-ng-hide="hideTable">
+            <header>
+                <h1 id="hDatabase">Review Table</h1>
 
-    <header>
-        <h1 id="hDatabase">Review Table</h1>
+            </header>
 
-    </header>
+            <div id="selectLocation">
+                <label>Location of Review: </label>
+                <select id="groupBy" data-ng-model="selectedLocation" data-ng-options="location.display for location in locations" data-ng-change="redrawTable()"></select>
+            </div>
 
-    <table id="browse-table">
-        <thead>
-            <th>Resturant Name</th>
-            <th>Food Type</th>
-            <th>Location</th>
-            <th>Critic Star Rating</th>
-            <th>Patron Star Rating</th>
-            <th>Delete Entry</th>
-        </thead>
+            <table id="browse-table">
+                <tr>
+                    <th>Resturant Name</th>
+                    <th>Food Type</th>
+                    <th>Location</th>
+                    <th>Critic Star Rating</th>
+                    <th>Patron Star Rating</th>
+                    <th colspan="2">Edit and Delete Entry</th>
+                </tr>
 
-        <tbody id="restaurantTable"></tbody>
-    </table>
+                <tr data-ng-repeat="obj in reviews">
+                    <td>{{obj.RestaurantName }}</td>
+                    <td>{{obj.foodType }}</td>
+                    <td>{{obj.location }}</td>
+                    <td>{{obj.criticRating }}</td>
+                    <td>{{obj.patronRating }}</td>
+                    <td>
+                        <button data-ng-click="editReview($index)">EDIT</button>
+                    </td>
+                    <td>
+                        <button data-ng-click="deleteReview(obj['_id'])">DELETE</button>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <section data-ng-hide="hideForm">
 
+            <header>
+                <h1 id="editPage">Please update the changes you want to make to the review<br>If you dont want to make any changes you can click the cancel edit button </h1>
+            </header>
+
+            <label data-ng-model="reviewId" hidden></label>
+            <form id="edit-section">
+                <div>
+                    <label class="labelName" for="RestaurantName">Restaurant Name :</label>
+                    <input class="inputBox" data-ng-model="RestaurantName" type="text" id="RestaurantName" name="RestaurantName" size=30>
+                </div>
+                <div>
+                    <label class="labelName" for="foodType">Food Type : </label>
+                    <input class="inputBox" data-ng-model="foodType" type="text" id="foodType" name="foodType" size=30>
+                </div>
+                <div>
+                    <label class="labelName" for="location">Location :</label>
+                    <input class="inputBox" data-ng-model="location" type="text" id="location" name="location" size=30>
+                </div>
+                <div>
+                    <label class="labelName" for="criticRating">Critic Rating 1-5 Stars :</label>
+                    <input class="inputBox" data-ng-model="criticRating" type="text" id="criticRating" name="criticRating" size="5" >
+                </div>
+                <div>
+                    <label class="labelName" for="patronRating">Patron Rating 1-5 Stars :</label>
+                    <input class="inputBox" data-ng-model="patronRating" type="text" id="patronRating" name="patronRating" size="5">
+                </div>
+                <div>
+                    <button style="margin-left: 180px;" data-ng-click="updateReview()">Update Review</button>
+
+                    <button style="margin-left: 10px;" data-ng-click="closeForm()">Cancel Edit</button>
+
+                </div>
+            </form>
+
+        </section>
+    </div>
 </body>
 
 </html>

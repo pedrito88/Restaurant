@@ -88,7 +88,7 @@ var services = function (app) {
 
     //delete services 
     app.delete('/delete-records', function (req, res) {
-        var reviewId = req.body.ID;
+        var reviewId = req.query.reviewId;
         var r_id = new ObjectId(reviewId);
         var search = {
             _id: r_id
@@ -118,6 +118,98 @@ var services = function (app) {
                         }));
                     }
                 })
+            }
+        });
+    });
+
+    app.get("/get-reviewsBYType", function (req, res) {
+        var location = req.query.location;
+        var search = (location === "") ? {} : {
+            location: location
+        };
+        var sortBy = {
+            name: 1
+        };
+        MongoClient.connect(dbURL, {
+            useUnifiedTopology: true
+        }, function (err, client) {
+
+            if (err) {
+                return res.status(200).send(JSON.stringify({
+                    msg: "ERROR: " + err
+                }));
+            } else {
+                var dbo = client.db("restReview");
+                dbo.collection("reviews").find(search).sort(sortBy).toArray(function (err, data) {
+
+                    if (err) {
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "ERROR: " + err
+                        }));
+                    } else {
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "SUCCESS",
+                            reviews: data
+                        }));
+                    }
+
+                });
+            }
+        });
+
+    });
+
+
+    app.put('/update-review', function (req, res) {
+
+        var reviewId = req.body.reviewId;
+        var RestaurantName = req.body.RestaurantName;
+        var foodType = req.body.foodType;
+        var location = req.body.location;
+        var criticRating = req.body.criticRating;
+        var patronRating = req.body.patronRating;
+
+        var r_id = new ObjectId(reviewId);
+
+        var search = {
+            _id: r_id
+        };
+        var updateData = {
+            $set: {
+                RestaurantName: RestaurantName,
+                foodType: foodType,
+                location: location,
+                criticRating: criticRating,
+                patronRating: patronRating
+            }
+        };
+
+        MongoClient.connect(dbURL, {
+            useUnifiedTopology: true
+        }, function (err, client) {
+
+            if (err) {
+                return res.status(200).send(JSON.stringify({
+                    msg: "ERROR: " + err
+                }));
+            } else {
+                var dbo = client.db("restReview");
+                dbo.collection("reviews").updateOne(search, updateData, function (err) {
+                    if (err) {
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "ERROR: " + err
+                        }));
+                    } else {
+                        client.close();
+                        return res.status(200).send(JSON.stringify({
+                            msg: "SUCCESS"
+                        }));
+                    }
+
+                });
             }
         });
     });

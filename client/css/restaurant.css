@@ -43,7 +43,7 @@
 
   .headerLinks:hover {
       text-decoration: none;
-      background-color: rgba(0,0,0,0.75);
+      background-color: rgba(0, 0, 0, 0.75);
       color: lightseagreen;
       font-weight: bolder;
   }
@@ -106,7 +106,7 @@
       color: darkblue;
       font-weight: bolder;
       background-color: lightgray;
-      width: 285px;
+      width: 300px;
       border-radius: 30px;
       margin: auto;
       margin-top: 200px;
@@ -114,11 +114,11 @@
       opacity: 0.80;
   }
 
-  section {
+  #write-section {
       font-family: 'Luckiest Guy', cursive;
       border: 4px solid black;
       margin: auto;
-      width: 400px;
+      width: 600px;
       border-radius: 30px;
       margin-top: 5px;
       background-color: lightgray;
@@ -174,6 +174,26 @@
       opacity: 0.80;
   }
 
+  #selectLocation {
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: black;
+      font-size: 17px;
+      text-align: center;
+      font-weight: bolder;
+      background-color: lightsalmon;
+      width: 350px;
+      opacity: .85;
+  }
+
+  #groupBy {
+      background-color: lightseagreen;
+      color: white;
+      text-align: center;
+      font-weight: bolder;
+  }
+
   table {
       font-family: 'Patrick Hand', cursive;
       border: 2px solid black;
@@ -181,7 +201,7 @@
       margin: auto;
       margin-top: 5px;
       opacity: 0.70;
-    
+
   }
 
   th {
@@ -219,14 +239,38 @@
       color: white;
   }
 
-  tr:nth-child(even) {
+  tr:nth-child(odd) {
       background-color: lightseagreen;
       color: aliceblue;
   }
 
-  tr:nth-child(odd) {
+  tr:nth-child(even) {
       background-color: lightsalmon;
   }
+
+  #editPage {
+      text-align: center;
+      background-color: white;
+      width: 1200px;
+      font-weight: bolder;
+      margin: auto;
+      margin-top: 200px;
+      font-size: 34px;
+      opacity: 0.80;
+  }
+
+  #edit-section {
+      font-family: 'Luckiest Guy', cursive;
+      border: 4px solid black;
+      margin: auto;
+      width: 600px;
+      border-radius: 30px;
+      margin-top: 30px;
+      background-color: lightgray;
+      opacity: 0.80;
+      padding: 8px;
+  }
+
 
   /************   view webpage   **************/
 
@@ -249,7 +293,7 @@
       color: white;
       font-weight: bolder;
       text-align: center;
-      padding-left: 220px;
+      padding-left: 80px;
   }
 
   .view-th {

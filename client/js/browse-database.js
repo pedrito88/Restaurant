@@ -1,4 +1,5 @@
 //retrieve library data and populate on page load
+//this js page is no longer in use but i wantto keep it for review, thanks professor
 
 $.ajax({
     url: resURL + '/read-records',
